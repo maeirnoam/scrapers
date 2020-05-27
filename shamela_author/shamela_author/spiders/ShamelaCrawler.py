@@ -6,8 +6,8 @@ from scrapy.http import Request
 
 class MySpider(CrawlSpider):
     name = 'author_scrape'
-    author_id = '266'
-    author_eng = 'al-Sulami'
+    author_id = '787'
+    author_eng = 'al-Jahiz'
     start_urls = ['https://al-maktaba.org/author/{}'.format(author_id)]
 
     rules = (
@@ -55,7 +55,7 @@ class MySpider(CrawlSpider):
             request.meta['meta'] = bib_data
             yield request
         else:
-            text_file = open("{}, {}.txt".format(bib_data['title'], self.author_eng), "w")
+            text_file = open("{}, {}.txt".format(bib_data['title'], self.author_eng), "w", encoding='utf-8')
             text_file.write(bib_data['all_text'])
             text_file.close()
 
