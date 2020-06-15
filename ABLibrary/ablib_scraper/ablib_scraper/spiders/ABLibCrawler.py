@@ -37,7 +37,7 @@ class MySpider(CrawlSpider):
         bib_data['all_text'] = bib_data['all_text'] + '\n' + book_text
         self.log('extracted book {}'.format(bib_data['title']))
         text_file = open("{}, {}.txt".format(bib_data['title'], self.author_eng), "w")
-        bib_data['all_text'] = self.clean_text(bib_data['all_text'])
+        #bib_data['all_text'] = self.clean_text(bib_data['all_text'])
         text_file.write(bib_data['all_text'])
         text_file.close()
 
