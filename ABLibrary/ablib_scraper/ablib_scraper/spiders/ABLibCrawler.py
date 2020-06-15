@@ -42,5 +42,6 @@ class MySpider(CrawlSpider):
         text_file.close()
 
     def clean_text(self, text):
+        #here will be code that removes from the string "text" the unwanted patterns
         return text
 
