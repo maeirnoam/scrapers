@@ -5,9 +5,9 @@ import re
 
 class MySpider(CrawlSpider):
     name = 'author_scrape'
-    author_name = 'أبي طالب المكي'
-    author_eng = 'al-Makki'
-    start_urls = ['https://ablibrary.net/books/?offset=0&limit=50&author={}&sort=name,asc'.format(author_name)]#start url from here, need to parse the json dict.
+    author_name = 'منصور حلاج'
+    author_eng = 'Halaj'
+    start_urls = ['https://ablibrary.net/books/?offset=0&author={}&sort=name,asc'.format(author_name)]#start url from here, need to parse the json dict.
 
 
     def parse(self, response):
@@ -36,7 +36,7 @@ class MySpider(CrawlSpider):
         book_text = response.body.decode()
         bib_data['all_text'] = bib_data['all_text'] + '\n' + book_text
         self.log('extracted book {}'.format(bib_data['title']))
-        text_file = open("{}, {}.txt".format(bib_data['title'], self.author_eng), "w")
+        text_file = open("{}, {}.txt".format(bib_data['title'], self.author_eng), "w", encoding='utf-8')
         #bib_data['all_text'] = self.clean_text(bib_data['all_text'])
         text_file.write(bib_data['all_text'])
         text_file.close()
