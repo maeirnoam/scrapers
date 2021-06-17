@@ -6,8 +6,8 @@ from scrapy.http import Request
 
 class MySpider(CrawlSpider):
     name = 'author_scrape'
-    author_id = '787'
-    author_eng = 'al-Jahiz'
+    author_id = '58'
+    author_eng = 'al-Ashari'
     start_urls = ['https://al-maktaba.org/author/{}'.format(author_id)]
 
     rules = (

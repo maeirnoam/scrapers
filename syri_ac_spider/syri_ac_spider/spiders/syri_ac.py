@@ -33,4 +33,4 @@ class SyriSpider(scrapy.Spider):
             yield response.follow(next_page, callback = self.parse)
         else:
             all_data = pd.DataFrame(self.mss_data)
-            all_data.to_csv('syri.ac_data.csv')
+            all_data.to_csv('syriac_data.csv')
